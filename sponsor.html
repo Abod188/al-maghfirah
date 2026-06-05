@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ساهم في دعم حلقات مركز المغفرة النموذجي وكفالة طلاب تحفيظ القرآن الكريم ومعلميه المتطوعين، واكسب الأجر الجاري.">
+  <title id="webPageTitle">دعم المركز وكفالة الحلقات | مركز المغفرة لتعليم القرآن الكريم</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=1.0.7">
+</head>
+<body data-theme="light">
+
+  <!-- Desktop Left Sidebar Panel (الكونسول الجانبي والعجلة الملاحية) -->
+  <aside class="left-sidebar-panel" id="leftSidebarPanel">
+    <!-- Top: Decorative Islamic Crest (أيقونة جمالية مذهبة لملء الفراغ العلوي) -->
+    <div class="sidebar-crest">
+      <i class="fa-solid fa-star-and-crescent"></i>
+    </div>
+
+    <!-- Middle: Astrolabe Navigation Wheel -->
+    <div class="nav-wheel-container" id="navWheelContainer">
+      <!-- Pointer Arrow/Crescent -->
+      <div class="wheel-pointer">
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      
+      <!-- Outer Astrolabe Shell with Islamic Geometric Art & Glow -->
+      <div class="wheel-outer">
+        <div class="wheel-pattern"></div>
+        
+        <!-- Inner Rotating Wheel -->
+        <div class="wheel-inner" id="wheelInner" style="--wheel-rotation: -180deg; transform: rotate(-180deg);">
+          <!-- Navigation Nodes (7 Nodes spaced by 50 degrees) -->
+          <!-- index: angle -120deg -->
+          <button class="wheel-node" data-page="index" style="--node-angle: -120deg;" title="الرئيسية">
+            <div class="node-content">
+              <i class="fa-solid fa-house"></i>
+              <span class="node-text">الرئيسية</span>
+            </div>
+          </button>
+          <!-- about: angle -70deg -->
+          <button class="wheel-node" data-page="about" style="--node-angle: -70deg;" title="عن المركز">
+            <div class="node-content">
+              <i class="fa-solid fa-circle-info"></i>
+              <span class="node-text">عن المركز</span>
+            </div>
+          </button>
+          <!-- summer: angle -20deg -->
+          <button class="wheel-node" data-page="summer" style="--node-angle: -20deg;" title="المركز الصيفي">
+            <div class="node-content">
+              <i class="fa-solid fa-sun"></i>
+              <span class="node-text">المركز الصيفي</span>
+            </div>
+          </button>
+          <!-- activities: angle 30deg -->
+          <button class="wheel-node" data-page="activities" style="--node-angle: 30deg;" title="البرامج والأنشطة">
+            <div class="node-content">
+              <i class="fa-solid fa-calendar-day"></i>
+              <span class="node-text">الأنشطة</span>
+            </div>
+          </button>
+          <!-- showcases: angle 80deg -->
+          <button class="wheel-node" data-page="showcases" style="--node-angle: 80deg;" title="نماذج الطلاب">
+            <div class="node-content">
+              <i class="fa-solid fa-star"></i>
+              <span class="node-text">نماذجنا</span>
+            </div>
+          </button>
+          <!-- library: angle 130deg -->
+          <button class="wheel-node" data-page="library" style="--node-angle: 130deg;" title="المناهج الرقمية">
+            <div class="node-content">
+              <i class="fa-solid fa-book-open"></i>
+              <span class="node-text">المناهج</span>
+            </div>
+          </button>
+          <!-- sponsor: angle 180deg -->
+          <button class="wheel-node active" data-page="sponsor" style="--node-angle: 180deg;" title="دعم المركز">
+            <div class="node-content">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+              <span class="node-text">الدعم</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom: Theme Toggle Button -->
+    <div class="sidebar-footer">
+      <button class="theme-toggle" id="sidebarThemeToggle" title="تبديل المظهر">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Dynamic Animated Backgrounds -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header id="main-header">
+    <a href="index.php" class="logo">
+      <img src="logo.png" alt="شعار مركز المغفرة" class="logo-img">
+      <div class="logo-text">
+        <span class="logo-title" id="logoTitle">مركز المغفرة</span>
+        <span class="logo-subtitle" id="logoSubtitle">لتعليم القرآن الكريم</span>
+      </div>
+    </a>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li class="menu-brand-wrapper">
+          <img src="logo.png" alt="شعار مركز المغفرة" class="menu-brand-img">
+          <div class="menu-brand-text">
+            <span class="menu-brand-title" id="menuBrandTitle">مركز المغفرة</span>
+            <span class="menu-brand-subtitle" id="menuBrandSubtitle">لتعليم القرآن الكريم</span>
+          </div>
+        </li>
+        <li><a href="index.php"  class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+        <li><a href="about.php" class="nav-link" data-i18n="nav_about">عن المركز</a></li>
+        <li><a href="summer.php" class="nav-link" data-i18n="nav_summer">المركز الصيفي</a></li>
+        <li><a href="activities.php" class="nav-link" data-i18n="nav_activities">البرامج والأنشطة</a></li>
+        <li><a href="showcases.php" class="nav-link" data-i18n="nav_showcases">نماذج المركز</a></li>
+        <li><a href="library.php" class="nav-link" data-i18n="nav_library">المناهج</a></li>
+        <li><a href="sponsor.php" class="nav-link" data-i18n="nav_sponsor">دعم المركز</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-controls">
+      <button class="lang-toggle" id="langToggle" title="Switch Language" aria-label="Language">
+        <i class="fa-solid fa-globe"></i>
+        <span id="langLabel">EN</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" title="تبديل المظهر">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== SPONSOR SECTION ===== -->
+  <section id="sponsor" class="reveal active" style="margin-top: 120px; padding: 4rem 0;">
+    <div class="container">
+      <!-- Centered Page Logo Emblem (Visible on Mobile) -->
+      <div class="page-logo-emblem">
+        <img src="logo.png" alt="شعار مركز المغفرة" class="emblem-img">
+        <div class="emblem-text">
+          <span class="emblem-title" id="emblemTitle">مركز المغفرة</span>
+          <span class="emblem-subtitle" id="emblemSubtitle">لتعليم القرآن الكريم</span>
+        </div>
+      </div>
+
+      <h2 data-i18n="sponsor_heading">دعم المركز</h2>
+      <p class="section-sub" data-i18n="sponsor_desc">قال رسول الله ﷺ: "خيركم من تعلم القرآن وعلمه". ساهم في دعم حلقات مركز المغفرة وكن شريكاً في أجر كل حرف يُتلى.</p>
+
+      <div class="sponsor-layout">
+        <!-- Donation Options -->
+        <div class="sponsor-opts-wrap">
+          <h3 data-i18n="sponsor_form_title"><i class="fa-solid fa-circle-dollar-to-slot"></i> نموذج دعم الحلقات السريع</h3>
+          <div class="grid sponsor-opts-grid" id="sponsorOptions">
+            <!-- Generated Dynamically -->
+          </div>
+
+          <form class="sponsor-form" id="donationForm">
+            <div class="form-group">
+              <label for="donorName" data-i18n="label_name">الاسم الكريم / الداعم</label>
+              <input type="text" id="donorName" placeholder="مثال: فاعل خير" required>
+            </div>
+            <div class="form-group">
+              <label for="donorPhone" data-i18n="label_phone">رقم التواصل (هاتف أو واتساب)</label>
+              <input type="tel" id="donorPhone" placeholder="مثال: +966500000000" required>
+            </div>
+            <div class="form-group">
+              <label for="selectedRing" data-i18n="label_ring">تخصيص الدعم لحلقة معينة (اختياري)</label>
+              <select id="selectedRing">
+                <option value="all" data-i18n="ring_all">كافة حلقات المركز (عام)</option>
+                <!-- populated dynamically via settings/JS -->
+              </select>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%; justify-content: center;">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+              <span data-i18n="btn_donate">إرسال طلب الدعم الافتراضي</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Impact Card -->
+        <div class="card impact-card">
+          <div class="icon-wrapper"><i class="fa-solid fa-circle-nodes"></i></div>
+          <h3 data-i18n="sponsor_impact_title">كيف تؤثر مساهمتك؟</h3>
+          <p data-i18n="sponsor_impact_desc">تغطية تكاليف طباعة الأوراق والمصاحف والمناهج، وتأمين حوافز عينية ومادية للطلاب المتميزين تشجيعاً لهم، ودعم المعلمين الفضلاء المتطوعين للإشراف اليومي على حفظ القرآن.</p>
+          <ul class="impact-list">
+            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="impact1"></span></li>
+            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="impact2"></span></li>
+            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="impact3"></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-socials" style="margin-bottom: 0; display: flex; gap: 1rem;">
+        <a id="footerFacebookLink" href="#" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+        <a id="footerWhatsAppLink" href="#" target="_blank" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+
+      <p class="footer-copy" id="footerCopy" data-i18n="footer_copy">
+        © 2026 مركز المغفرة لتعليم القرآن الكريم. جميع الحقوق محفوظة.
+      </p>
+      <p class="footer-credits" id="footerCredits"  style="font-size: 0.8rem; opacity: 0.75; margin-top: 0; font-weight: 700;">
+        برمجة وتصميم: <a href="https://wa.me/967780331184" target="_blank" style="color: var(--secondary); text-decoration: none; border-bottom: 1px dashed var(--secondary);">Antigravity</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Donation Success Modal -->
+  <div class="modal-backdrop" id="successModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fa-solid fa-circle-check"></i> <span data-i18n="modal_donate_success">تم إرسال طلبكم بنجاح</span></h3>
+        <button class="modal-close" onclick="closeModal('successModal')">&times;</button>
+      </div>
+      <div class="modal-body" style="text-align: center; padding: 40px 24px;">
+        <i class="fa-solid fa-hand-holding-heart" style="font-size: 4rem; color: var(--secondary); margin-bottom: 20px;"></i>
+        <h4 id="modalThanksTitle" data-i18n="modal_thanks_title">شكر الله عطاءكم!</h4>
+        <p id="modalThanksBody" data-i18n="modal_thanks_body">لقد تلقينا طلب الدعم الافتراضي الخاص بك بنجاح. سيقوم قسم العلاقات العامة بالتواصل معك لتنسيق المساهمة.</p>
+        <a id="modalWhatsAppBtn" href="#" target="_blank" class="btn-primary" style="margin-top: 20px; width: 100%; justify-content: center; background-color: #25D366; border-color: #25D366; color: white; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-brands fa-whatsapp"></i> <span data-i18n="modal_whatsapp_btn">متابعة الدعم عبر واتساب للمدير</span>
+        </a>
+        <button class="btn-primary" onclick="closeModal('successModal')" style="margin-top: 12px; width: 100%; justify-content:center; background-color: transparent; border: 1px solid var(--primary); color: var(--primary);">
+          <span data-i18n="modal_close_btn">إغلاق النافذة</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar (شريط التنقل السفلي للهواتف) -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.php" class="nav-item" data-page="index">
+      <i class="fa-solid fa-house"></i>
+      <span class="nav-item-text">الرئيسية</span>
+    </a>
+    <a href="about.php" class="nav-item" data-page="about">
+      <i class="fa-solid fa-circle-info"></i>
+      <span class="nav-item-text">عن المركز</span>
+    </a>
+    <a href="summer.php" class="nav-item" data-page="summer">
+      <i class="fa-solid fa-sun"></i>
+      <span class="nav-item-text">المركز الصيفي</span>
+    </a>
+    <a href="activities.php" class="nav-item" data-page="activities">
+      <i class="fa-solid fa-calendar-day"></i>
+      <span class="nav-item-text">الأنشطة</span>
+    </a>
+    <a href="showcases.php" class="nav-item" data-page="showcases">
+      <i class="fa-solid fa-star"></i>
+      <span class="nav-item-text">نماذجنا</span>
+    </a>
+    <a href="library.php" class="nav-item" data-page="library">
+      <i class="fa-solid fa-book-open"></i>
+      <span class="nav-item-text">المناهج</span>
+    </a>
+    <a href="sponsor.php" class="nav-item active" data-page="sponsor">
+      <i class="fa-solid fa-hand-holding-heart"></i>
+      <span class="nav-item-text">الدعم</span>
+    </a>
+  </nav>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main JavaScript -->
+  <script src="app.js?v=1.0.7"></script>
+</body>
+</html>

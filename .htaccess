@@ -1,0 +1,64 @@
+# ============================================================
+# Al-Maghfirah Center - Apache Configuration
+# ============================================================
+
+Options -Indexes
+DirectoryIndex index.php index.html
+
+# ── PHP settings ─────────────────────────────────────────────
+<IfModule mod_php7.c>
+    php_flag display_errors Off
+    php_value upload_max_filesize 32M
+    php_value post_max_size 32M
+    php_value max_execution_time 60
+</IfModule>
+
+# ── Character encoding ────────────────────────────────────────
+AddDefaultCharset UTF-8
+
+# ── Rewrite engine ───────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Allow direct access to existing files and directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route .php extensions to their HTML counterparts if needed
+    RewriteRule ^about$ about.php [L]
+    RewriteRule ^activities$ activities.php [L]
+    RewriteRule ^library$ library.php [L]
+    RewriteRule ^showcases$ showcases.php [L]
+    RewriteRule ^sponsor$ sponsor.php [L]
+    RewriteRule ^summer$ summer.php [L]
+</IfModule>
+
+# ── Security headers ─────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options SAMEORIGIN
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# ── Cache control ────────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+</IfModule>
+
+# ── Protect sensitive files ──────────────────────────────────
+<FilesMatch "\.(sql|log|env|gitignore)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<Files ".htaccess">
+    Order Allow,Deny
+    Deny from all
+</Files>

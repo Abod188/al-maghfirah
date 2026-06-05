@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="htmlRoot">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="سجل الآن في برنامج المركز الصيفي الجديد لمركز المغفرة النموذجي لتعليم القرآن الكريم والعلوم والمهارات المتنوعة.">
+  <title id="webPageTitle">التسجيل في المركز الصيفي | مركز المغفرة لتعليم القرآن الكريم</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=1.0.7">
+  
+  <style>
+    .summer-layout {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    
+    .summer-form-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .summer-form-title {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .summer-form-title i {
+      color: var(--secondary);
+    }
+    
+    .dynamic-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    
+    @media (max-width: 768px) {
+      .summer-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .summer-form-card {
+        padding: 1.5rem;
+      }
+    }
+    
+    .info-box {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .info-list {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    
+    .info-list li i {
+      color: var(--secondary);
+      font-size: 1.2rem;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <!-- Desktop Left Sidebar Panel (الكونسول الجانبي والعجلة الملاحية) -->
+  <aside class="left-sidebar-panel" id="leftSidebarPanel">
+    <div class="sidebar-crest">
+      <i class="fa-solid fa-star-and-crescent"></i>
+    </div>
+
+    <!-- Middle: Astrolabe Navigation Wheel -->
+    <div class="nav-wheel-container" id="navWheelContainer">
+      <div class="wheel-pointer">
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      
+      <div class="wheel-outer">
+        <div class="wheel-pattern"></div>
+        <div class="wheel-inner" id="wheelInner" style="--wheel-rotation: 20deg; transform: rotate(20deg);">
+          <button class="wheel-node" data-page="index" style="--node-angle: -120deg;" title="الرئيسية">
+            <div class="node-content">
+              <i class="fa-solid fa-house"></i>
+              <span class="node-text">الرئيسية</span>
+            </div>
+          </button>
+          <button class="wheel-node" data-page="about" style="--node-angle: -70deg;" title="عن المركز">
+            <div class="node-content">
+              <i class="fa-solid fa-circle-info"></i>
+              <span class="node-text">عن المركز</span>
+            </div>
+          </button>
+          <button class="wheel-node active" data-page="summer" style="--node-angle: -20deg;" title="المركز الصيفي">
+            <div class="node-content">
+              <i class="fa-solid fa-sun"></i>
+              <span class="node-text">المركز الصيفي</span>
+            </div>
+          </button>
+          <button class="wheel-node" data-page="activities" style="--node-angle: 30deg;" title="البرامج والأنشطة">
+            <div class="node-content">
+              <i class="fa-solid fa-calendar-day"></i>
+              <span class="node-text">الأنشطة</span>
+            </div>
+          </button>
+          <button class="wheel-node" data-page="showcases" style="--node-angle: 80deg;" title="نماذج الطلاب">
+            <div class="node-content">
+              <i class="fa-solid fa-star"></i>
+              <span class="node-text">نماذجنا</span>
+            </div>
+          </button>
+          <button class="wheel-node" data-page="library" style="--node-angle: 130deg;" title="المناهج الرقمية">
+            <div class="node-content">
+              <i class="fa-solid fa-book-open"></i>
+              <span class="node-text">المناهج</span>
+            </div>
+          </button>
+          <button class="wheel-node" data-page="sponsor" style="--node-angle: 180deg;" title="دعم المركز">
+            <div class="node-content">
+              <i class="fa-solid fa-hand-holding-heart"></i>
+              <span class="node-text">الدعم</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="theme-toggle" id="sidebarThemeToggle" title="تبديل المظهر">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Dynamic Animated Backgrounds -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header id="main-header">
+    <a href="index.php" class="logo">
+      <img src="logo.png" alt="شعار مركز المغفرة" class="logo-img">
+      <div class="logo-text">
+        <span class="logo-title" id="logoTitle">مركز المغفرة</span>
+        <span class="logo-subtitle" id="logoSubtitle">لتعليم القرآن الكريم</span>
+      </div>
+    </a>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li class="menu-brand-wrapper">
+          <img src="logo.png" alt="شعار مركز المغفرة" class="menu-brand-img">
+          <div class="menu-brand-text">
+            <span class="menu-brand-title" id="menuBrandTitle">مركز المغفرة</span>
+            <span class="menu-brand-subtitle" id="menuBrandSubtitle">لتعليم القرآن الكريم</span>
+          </div>
+        </li>
+        <li><a href="index.php" class="nav-link" data-i18n="nav_home">الرئيسية</a></li>
+        <li><a href="about.php" class="nav-link" data-i18n="nav_about">عن المركز</a></li>
+        <li><a href="summer.php" class="nav-link" data-i18n="nav_summer">المركز الصيفي</a></li>
+        <li><a href="activities.php" class="nav-link" data-i18n="nav_activities">البرامج والأنشطة</a></li>
+        <li><a href="showcases.php" class="nav-link" data-i18n="nav_showcases">نماذج المركز</a></li>
+        <li><a href="library.php" class="nav-link" data-i18n="nav_library">المناهج</a></li>
+        <li><a href="sponsor.php" class="nav-link" data-i18n="nav_sponsor">دعم المركز</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-controls">
+      <button class="lang-toggle" id="langToggle" title="Switch Language" aria-label="Language">
+        <i class="fa-solid fa-globe"></i>
+        <span id="langLabel">EN</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" title="تبديل المظهر">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="القائمة">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== SUMMER CENTER REGISTRATION SECTION ===== -->
+  <section id="summer" class="reveal active" style="margin-top: 120px; padding: 4rem 0;">
+    <div class="container">
+      <!-- Centered Page Logo Emblem (Visible on Mobile) -->
+      <div class="page-logo-emblem">
+        <img src="logo.png" alt="شعار مركز المغفرة" class="emblem-img">
+        <div class="emblem-text">
+          <span class="emblem-title" id="emblemTitle">مركز المغفرة</span>
+          <span class="emblem-subtitle" id="emblemSubtitle">لتعليم القرآن الكريم</span>
+        </div>
+      </div>
+
+      <h2 id="summerHeading">المركز الصيفي الجديد</h2>
+      <p class="section-sub" id="summerDesc">بادر بتسجيل ابنك أو قريبك في برنامج المركز الصيفي النموذجي. نهدف لبناء القدرات وتنمية المهارات وتعميق الحفظ القرآني في بيئة تفاعلية محفزة.</p>
+
+      <div class="summer-layout">
+        <!-- Dynamic Registration Form Card -->
+        <div class="summer-form-card">
+          <h3 class="summer-form-title"><i class="fa-solid fa-sun-plant-wilt"></i> <span id="formTitleText">استمارة التسجيل الإلكتروني</span></h3>
+          
+          <form class="dynamic-form" id="summerRegisterForm">
+            <div id="dynamicFieldsContainer">
+              <!-- Rendered Dynamically from Database Fields -->
+              <div style="text-align: center; padding: 20px; color: var(--text-muted);">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                <p>جاري تحميل حقول التسجيل...</p>
+              </div>
+            </div>
+            
+            <button type="submit" class="btn-primary" style="width:100%; justify-content: center; margin-top: 1rem;" id="submitBtn">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>إرسال بيانات التسجيل</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Information Side Card -->
+        <div class="card info-box">
+          <div class="icon-wrapper"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3 style="margin-top: 15px; color: var(--primary);">توجيهات هامة للتسجيل</h3>
+          <p style="margin-top: 10px; font-size: 0.95rem; color: var(--text-muted);">يرجى التأكد من ملء جميع الحقول المطلوبة بشكل دقيق ليتمكن فريق الإدارة من مراجعة الطلب والتواصل معكم وتسكين الطالب في الحلقة المناسبة.</p>
+          <ul class="info-list">
+            <li><i class="fa-solid fa-circle-check"></i> <span>يتم التحقق من بيانات ولي الأمر للتواصل الفوري عبر الواتساب.</span></li>
+            <li><i class="fa-solid fa-circle-check"></i> <span>سيتم إخطاركم ببريد تأكيد أو اتصال هاتفي فور قبول الطلب.</span></li>
+            <li><i class="fa-solid fa-circle-check"></i> <span>عدد المقاعد محدود لضمان كفاءة التحصيل وحلقات نوعية.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-socials" style="margin-bottom: 0; display: flex; gap: 1rem;">
+        <a id="footerFacebookLink" href="#" target="_blank" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+        <a id="footerWhatsAppLink" href="#" target="_blank" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+
+      <p class="footer-copy" id="footerCopy" data-i18n="footer_copy">
+        © 2026 مركز المغفرة لتعليم القرآن الكريم. جميع الحقوق محفوظة.
+      </p>
+      <p class="footer-credits" id="footerCredits" style="font-size: 0.8rem; opacity: 0.75; margin-top: 0; font-weight: 700;">
+        برمجة وتصميم: <a href="https://wa.me/967780331184" target="_blank" style="color: var(--secondary); text-decoration: none; border-bottom: 1px dashed var(--secondary);">Antigravity</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Success Modal -->
+  <div class="modal-backdrop" id="summerSuccessModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fa-solid fa-circle-check"></i> <span>تم التسجيل بنجاح</span></h3>
+        <button class="modal-close" onclick="closeModal('summerSuccessModal')">&times;</button>
+      </div>
+      <div class="modal-body" style="text-align: center; padding: 40px 24px;">
+        <i class="fa-solid fa-calendar-check" style="font-size: 4rem; color: var(--secondary); margin-bottom: 20px;"></i>
+        <h4 id="successTitle">نشكركم على التسجيل!</h4>
+        <p id="successBody">تم حفظ بيانات الطالب بنجاح وإرسال إشعار إلى إدارة المركز للمراجعة والتواصل معكم.</p>
+        <button class="btn-primary" onclick="closeModal('summerSuccessModal')" style="margin-top: 20px; width: 100%; justify-content:center;">
+          <span>موافق، إغلاق</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar (شريط التنقل السفلي للهواتف) -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.php" class="nav-item" data-page="index">
+      <i class="fa-solid fa-house"></i>
+      <span class="nav-item-text">الرئيسية</span>
+    </a>
+    <a href="about.php" class="nav-item" data-page="about">
+      <i class="fa-solid fa-circle-info"></i>
+      <span class="nav-item-text">عن المركز</span>
+    </a>
+    <a href="summer.php" class="nav-item active" data-page="summer">
+      <i class="fa-solid fa-sun"></i>
+      <span class="nav-item-text">المركز الصيفي</span>
+    </a>
+    <a href="activities.php" class="nav-item" data-page="activities">
+      <i class="fa-solid fa-calendar-day"></i>
+      <span class="nav-item-text">الأنشطة</span>
+    </a>
+    <a href="showcases.php" class="nav-item" data-page="showcases">
+      <i class="fa-solid fa-star"></i>
+      <span class="nav-item-text">نماذجنا</span>
+    </a>
+    <a href="library.php" class="nav-item" data-page="library">
+      <i class="fa-solid fa-book-open"></i>
+      <span class="nav-item-text">المناهج</span>
+    </a>
+    <a href="sponsor.php" class="nav-item" data-page="sponsor">
+      <i class="fa-solid fa-hand-holding-heart"></i>
+      <span class="nav-item-text">الدعم</span>
+    </a>
+  </nav>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main JavaScript -->
+  <script src="app.js?v=1.0.7"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadSummerFields();
+      
+      const form = document.getElementById('summerRegisterForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        submitSummerRegistration();
+      });
+    });
+
+    let currentFields = [];
+
+    function loadSummerFields() {
+      const container = document.getElementById('dynamicFieldsContainer');
+      
+      fetch(getApiUrl('api/get_summer_fields.php'))
+        .then(res => res.json())
+        .then(data => {
+          if (data.success && data.fields && data.fields.length > 0) {
+            currentFields = data.fields;
+            container.innerHTML = '';
+            
+            // Build the form layout
+            let html = '';
+            
+            // Group fields in rows of 2 for text/number/select, leave textareas and large fields on their own rows
+            let i = 0;
+            while (i < currentFields.length) {
+              const field = currentFields[i];
+              const isLarge = field.field_type === 'textarea';
+              
+              if (isLarge) {
+                // Render full width
+                html += renderFieldMarkup(field, true);
+                i++;
+              } else {
+                // Try to pair with the next field if the next field is also small
+                const nextField = currentFields[i+1];
+                if (nextField && nextField.field_type !== 'textarea') {
+                  html += `<div class="form-row">
+                    ${renderFieldMarkup(field, false)}
+                    ${renderFieldMarkup(nextField, false)}
+                  </div>`;
+                  i += 2;
+                } else {
+                  html += renderFieldMarkup(field, true);
+                  i++;
+                }
+              }
+            }
+            
+            container.innerHTML = html;
+          } else {
+            container.innerHTML = '<p style="color: red; text-align: center;">فشل تحميل حقول التسجيل أو لا توجد حقول مفعلة حالياً.</p>';
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          container.innerHTML = '<p style="color: red; text-align: center;">حدث خطأ في الشبكة أثناء تحميل حقول التسجيل.</p>';
+        });
+    }
+
+    function renderFieldMarkup(field, isFullWidth) {
+      const requiredAttr = field.is_required ? 'required' : '';
+      const requiredStar = field.is_required ? '<span style="color: red;">*</span>' : '';
+      const type = field.field_type;
+      
+      let inputHtml = '';
+      
+      if (type === 'select') {
+        const options = field.field_options ? field.field_options.split(',').map(o => o.trim()) : [];
+        inputHtml = `<select id="field_${field.field_key}" name="${field.field_key}" ${requiredAttr}>
+          <option value="" disabled selected>-- اختر من القائمة --</option>
+          ${options.map(opt => `<option value="${opt}">${opt}</option>`).join('')}
+        </select>`;
+      } else if (type === 'textarea') {
+        inputHtml = `<textarea id="field_${field.field_key}" name="${field.field_key}" placeholder="${field.field_placeholder || ''}" rows="3" ${requiredAttr}></textarea>`;
+      } else {
+        // default text/number/tel/email inputs
+        inputHtml = `<input type="${type}" id="field_${field.field_key}" name="${field.field_key}" placeholder="${field.field_placeholder || ''}" ${requiredAttr}>`;
+      }
+      
+      return `<div class="form-group" style="${isFullWidth ? 'width: 100%;' : ''}">
+        <label for="field_${field.field_key}">${field.field_label} ${requiredStar}</label>
+        ${inputHtml}
+      </div>`;
+    }
+
+    function submitSummerRegistration() {
+      const form = document.getElementById('summerRegisterForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const originalBtnText = submitBtn.innerHTML;
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> جاري إرسال البيانات...';
+      
+      const formData = new FormData(form);
+      
+      fetch(getApiUrl('api/register_summer.php'), {
+        method: 'POST',
+        body: formData
+      })
+        .then(res => res.json())
+        .then(data => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+          
+          if (data.success) {
+            // Show custom success modal
+            showModal('summerSuccessModal');
+            form.reset();
+          } else {
+            showToast(data.message || 'حدث خطأ أثناء التسجيل.', 'error');
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+          showToast('حدث خطأ في الاتصال بالخادم، يرجى المحاولة لاحقاً.', 'error');
+        });
+    }
+
+    function showModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.add('active');
+    }
+    
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.remove('active');
+    }
+
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      if (type === 'error') {
+        toast.style.borderColor = '#dc3545';
+      }
+      toast.innerHTML = `<i class="fa-solid ${type === 'error' ? 'fa-triangle-exclamation' : 'fa-info-circle'}"></i> <span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+        setTimeout(() => toast.remove(), 400);
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
