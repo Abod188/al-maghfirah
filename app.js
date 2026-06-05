@@ -3,7 +3,12 @@
    ========================================================================== */
 
 // Environment and Routing Detection (Dynamic support for both PHP & HTML structures)
-const isPhpEnv = !window.location.pathname.includes('_html') && 
+// Forces HTML routing on static hosts like GitHub Pages, Netlify, and Vercel
+const isStaticHost = window.location.hostname.includes('github.io') || 
+                     window.location.hostname.includes('netlify.app') || 
+                     window.location.hostname.includes('vercel.app');
+const isPhpEnv = !isStaticHost &&
+                 !window.location.pathname.includes('_html') && 
                  (window.location.pathname.includes('.php') || 
                   (!window.location.pathname.includes('.html') && !window.location.pathname.includes('.htm')));
 const fileExt = isPhpEnv ? '.php' : '.html';
@@ -55,6 +60,22 @@ function triggerExitTransitionAndNavigate(targetUrl) {
   window.location.href = targetUrl;
 }
 
+function initLinkRewriter() {
+  if (!isPhpEnv) {
+    const localPages = ['index', 'about', 'activities', 'showcases', 'library', 'sponsor', 'summer'];
+    document.querySelectorAll('a[href]').forEach(anchor => {
+      let href = anchor.getAttribute('href');
+      if (href && !href.startsWith('http') && !href.startsWith('//')) {
+        localPages.forEach(page => {
+          if (href.includes(page + '.php')) {
+            anchor.setAttribute('href', href.replace(page + '.php', page + '.html'));
+          }
+        });
+      }
+    });
+  }
+}
+
 function initLinkInterceptor() {
   document.addEventListener('click', (e) => {
     const anchor = e.target.closest('a');
@@ -86,6 +107,7 @@ function initLinkInterceptor() {
 document.addEventListener('DOMContentLoaded', () => {
   injectPageTransition();
   injectCenterControls();
+  initLinkRewriter();
   initLanguage();  // Must be first – sets currentLang so t() works in renderBookCards / renderDonationCards
   initCmsData();
   initTheme();
